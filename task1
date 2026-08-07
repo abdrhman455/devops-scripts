@@ -1,0 +1,17 @@
+#!/bin/bash
+
+report=report_$(date +"%Y-%m-%d_%H:%M:%S").md 
+
+touch $report 
+
+echo "CPU :" > $report 
+top -bn1 | grep "Cpu" >> $report 
+echo "Memory :" >> $report 
+free -h >> $report 
+echo "free disk space :" >> $report 
+df -h >> $report
+
+echo $report
+
+
+
